@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import HomePage from "./components/HomePage";
 import RecipeIndex from "./components/RecipeIndex";
 import AddRecipe from "./components/AddRecipe";
+import RecipeDetail from "./components/RecipeDetail";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/recipes/add" element={< AddRecipe />} />
+          <Route path="/recipes/:id" element={< RecipeDetail />} />
+
         </Routes>
       </Container>
     </BrowserRouter>

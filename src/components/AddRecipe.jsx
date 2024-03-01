@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { currentUser } from '../lib/CurrentUser';
 
 export default function AddRecipe() {
     const [name, setName] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
-    const [ingredients, setIngredients] = useState('');
+    const [ingredients, setIngredients] = useState([]);
+    const [image, setImage] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,19 +18,23 @@ export default function AddRecipe() {
         } else if (name === 'description') {
             setDescription(value);
         } else if (name === 'ingredients') {
-            setIngredients(value);
+            setIngredients(value.split(',').map(ingredient => ingredient.trim()));
+        } else if (name === 'image') {
+            setImage(value);
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(currentUser().data)
 
         try {
             const recipeData = {
                 name: name,
-                author: author,
+                author: currentUser().user_id,
                 description: description,
-                ingredients: ingredients.split(',').map(ingredient => ingredient.trim()),
+                ingredients: ingredients,
+                image: image,
             };
             console.log(recipeData);
 
@@ -42,6 +48,7 @@ export default function AddRecipe() {
                     },
                 }
             );
+            window.location.href = `/recipes/`
         } catch (err) {
             console.error(err);
         }
@@ -59,16 +66,6 @@ export default function AddRecipe() {
                 required
             />
             <br />
-            <p>Author:</p>
-            <input
-                type="text"
-                name="author"
-                value={author}
-                onChange={handleChange}
-                placeholder="Recipe Creator"
-                required
-            />
-            <br />
             <p>Description:</p>
             <textarea
                 name="description"
@@ -82,9 +79,19 @@ export default function AddRecipe() {
             <input
                 type="text"
                 name="ingredients"
-                value={ingredients}
+                value={ingredients.join(', ')} // Display ingredients as a comma-separated string
                 onChange={handleChange}
                 placeholder="Ingredients (comma-separated)"
+                required
+            />
+            <br />
+            <p>Ingredients:</p>
+            <input
+                type="text"
+                name="image"
+                value={image}
+                onChange={handleChange}
+                placeholder="image url"
                 required
             />
             <br />

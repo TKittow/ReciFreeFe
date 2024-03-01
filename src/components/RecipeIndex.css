@@ -1,0 +1,36 @@
+.cardHolder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(900px, 1fr)); /* Adjust minmax values as needed */
+    gap: 20px;
+  }
+  
+  .recipeCard {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    height: 300px;
+    background-color: #f9f9f9;
+  }
+  
+  .author {
+    font-weight: bold;
+  }
+  
+  .foodName {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .description {
+    text-align: center;
+  }
+  
+  .ingredients {
+    margin-top: 10px;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }

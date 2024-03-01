@@ -11,20 +11,23 @@ export default function Mainmenu() {
   }, [isAuth]);
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="/">ReciFree</Navbar.Brand>
-      <Nav className="me-auto">
-        <Nav.Link href="recipes">Recipes</Nav.Link>
-        <Nav.Link href="recipes/add">Add a recipe</Nav.Link>
-
+      <Container>
+        <Navbar.Brand href="/">ReciFree</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="/recipes">Recipes</Nav.Link>
+          <Nav.Link href="/recipes/add">Add a recipe</Nav.Link>
+        </Nav>
         {isAuth ? (
-          <Nav.Link href="/logout">Logout</Nav.Link>
+          <Nav>
+            <Nav.Link href="/logout">Logout</Nav.Link>
+          </Nav>
         ) : (
-          <>
+          <Nav>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signup">SignUp</Nav.Link>
-          </>
+          </Nav>
         )}
-      </Nav>
+      </Container>
     </Navbar>
-  );
+  )
 }

@@ -1,5 +1,7 @@
+import './RecipeIndex.css'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 export default function RecipeIndex() {
@@ -25,15 +27,24 @@ export default function RecipeIndex() {
     },[])
 
   return (
-    <div>{recipes && recipes.map((recipe, idx)=>(
-        <div key={idx} className='recipeCard'>
-        <p>{recipe.name}</p>
-        <p>Author: {recipe.author}</p>
-        <p>{recipe.description}</p>
-        <div>{recipe.ingredients && recipe.ingredients.map((ingredient, idx)=>(
-            <div>{ingredient.name}</div>
-        ))}</div>
-        </div>
-    ))}</div>
+    <div className='cardHolder'>
+      {recipes && recipes.map((recipe, idx) => (
+        <Link to={`/recipes/${recipe.id}`} key={idx}>
+          <div className='recipeCard' style={{ 
+            backgroundImage: `url(${recipe.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center', }}>
+            <div className='author'>Author: {recipe.author.username}</div>
+            <p className='foodName'>{recipe.name}</p>
+            <p className='description'>{recipe.description}</p>
+            <div className='ingredients'>
+              {recipe.ingredients && recipe.ingredients.map((ingredient, idx) => (
+                <div key={idx}>{ingredient.name}</div>
+              ))}
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
   )
 }

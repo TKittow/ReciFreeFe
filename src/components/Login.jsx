@@ -29,14 +29,9 @@ export default function Login() {
 
     axios.defaults.headers.common["Authorization"] = `Bearer ${data.access}`;
     
-    const userResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/find_user/`);
-    const userId = userResponse.id;
-    console.log(userResponse)
+  
 
-    // Store userId locally
-    localStorage.setItem("userId", userId);
-
-    // window.location.href = "/"
+    window.location.href = "/"
   }
   return (
     <Form onSubmit={handleSubmit}>
