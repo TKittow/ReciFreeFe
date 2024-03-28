@@ -24,6 +24,7 @@ export default function Signup() {
             withCredentials: true,
           }
         );
+        console.log(data)
         window.location.href = "/login"
       }
   return (

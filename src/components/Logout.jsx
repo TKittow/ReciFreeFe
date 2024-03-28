@@ -28,6 +28,7 @@ export default function Logout() {
         console.log("Logout error", e);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return <div></div>;
 }
