@@ -34,9 +34,9 @@ export default function RecipeIndex() {
             backgroundImage: `url(${recipe.image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center', }}>
-            <div className='author'>Author: {recipe.author.username}</div>
-            <p className='foodName'>{recipe.name}</p>
-            <p className='description'>{recipe.description}</p>
+            <div className='author bolded'>Author: {recipe.author.username}</div>
+            <p className='foodName bolded'>{recipe.name}</p>
+            {/* <p className='description'>{recipe.description}</p> */}
             <div className='ingredients'>
               {recipe.ingredients && recipe.ingredients.map((ingredient, idx) => (
                 <div key={idx}>{ingredient.name}</div>

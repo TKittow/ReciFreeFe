@@ -1,0 +1,14 @@
+img{
+    display: block;
+    margin: auto;
+    align-self: center;
+
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bold{
+    font-weight: bold;
+}

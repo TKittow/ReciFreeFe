@@ -18,7 +18,7 @@
   
   .foodName {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.7em;
     margin-top: 10px;
   }
   
@@ -33,4 +33,18 @@
   a{
     text-decoration: none;
     color: black;
+  }
+
+  .shaded{
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .bolded{
+    color: white;
+    font-weight: bold;
+    text-shadow: 
+        -1.25px -1.25px 0 #000,  
+        1.25px -1.25px 0 #000,
+        -1.25px 1.25px 0 #000,
+        1.25px 1.25px 0 #000;
   }

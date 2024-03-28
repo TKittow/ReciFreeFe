@@ -3,6 +3,7 @@ import { Button, Modal } from 'react-bootstrap'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { currentUser } from '../lib/CurrentUser'
+import './RecipeDetail.css'
 
 
 export default function RecipeDetail() {
@@ -98,18 +99,22 @@ export default function RecipeDetail() {
 
     return (
         <>
-            <div>{recipe.name}</div>
             <p>{recipe?.author?.username}</p>
-            <p>{recipe.description}</p>
-            <div>{recipe.ingredients && recipe.ingredients.map((ingredient, idx)=>(
-                <div>{ingredient.name}</div>
-            ))}</div>
+            <div className='bold'>{recipe.name}</div>
+            <div className='buttons'>
             <Button variant='primary' onClick={handleEditShow}>
                 Edit
             </Button>
             <Button variant='outline-danger' onClick={handleShow}>
                 Delete
             </Button>
+            </div>
+            <img src={recipe.image} alt={recipe.name} width={'70%'} className='centre'/>
+            <hr />
+            <p>{recipe.description}</p>
+            <div>{recipe.ingredients && recipe.ingredients.map((ingredient, idx)=>(
+                <div>{ingredient.name}</div>
+            ))}</div>
 
             <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
