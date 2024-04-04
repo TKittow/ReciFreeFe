@@ -1,0 +1,54 @@
+/* MealDetail.css */
+
+.meal-detail-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.meal-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ingredient-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ingredient-list li {
+    margin-bottom: 5px;
+}
+
+.instructions-section, .tutorial-section {
+    margin-top: 20px;
+}
+
+.not-available {
+    font-style: italic;
+    color: #999;
+}
+
+.tutorial-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.tutorial-link:hover {
+    text-decoration: underline;
+}

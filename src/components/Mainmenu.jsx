@@ -16,6 +16,7 @@ export default function Mainmenu() {
         <Nav className="me-auto">
           <Nav.Link href="/recipes">Recipes</Nav.Link>
           <Nav.Link href="/recipes/add">Add a recipe</Nav.Link>
+          
         </Nav>
         {isAuth ? (
           <Nav>
@@ -27,6 +28,7 @@ export default function Mainmenu() {
             <Nav.Link href="/signup">SignUp</Nav.Link>
           </Nav>
         )}
+        
       </Container>
     </Navbar>
   )

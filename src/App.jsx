@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 import RecipeIndex from "./components/RecipeIndex";
 import AddRecipe from "./components/AddRecipe";
 import RecipeDetail from "./components/RecipeDetail";
+import MealDetail from './components/MealDetail'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/recipes/add" element={< AddRecipe />} />
           <Route path="/recipes/:id" element={< RecipeDetail />} />
+          <Route path="/meals/:id" element={< MealDetail />} />
 
         </Routes>
       </Container>
