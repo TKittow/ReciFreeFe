@@ -58,18 +58,16 @@ export default function HomePage() {
         <p>Searching...</p>
       ) : searchResult.length > 0 ? (
         searchResult.map((meal, index) => (
-          // <div key={index}>
-          //   <p>{meal.strMeal}</p>
-          //   <img src={meal.strMealThumb} alt={meal.strMeal} />
-          //   <p>{meal.strInstructions}</p>
-          //   <a href={meal.strYoutube}>Watch on YouTube</a>
-          // </div>
           <Link to={`/meals/${meal.idMeal}`} key={index}>
           <div className='recipeCard' style={{ 
             backgroundImage: `url(${meal.strMealThumb})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center', }}>
-            <div className='author bolded'>Source: {sourceChanger(meal.strSource)}</div>
+              {meal.strSource? 
+              <div className='author bolded'>Source: {sourceChanger(meal.strSource)}</div>
+            :
+            <></>}
+            
             <p className='foodName bolded'>{meal.strMeal}</p>
             {/* <p className='description'>{recipe.description}</p> */}
           </div>

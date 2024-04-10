@@ -8,6 +8,7 @@ import './RecipeDetail.css'
 
 export default function RecipeDetail() {
     const [recipe, setRecipe] = useState({})
+    // const [meal, setMeal] = useState({})
     const [show, setShow] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
     const [editName, setEditName] = useState('')
@@ -80,7 +81,26 @@ export default function RecipeDetail() {
             }
         }
         fetchRecipe()
-    },[id])
+    },[])
+
+    // useEffect(()=>{
+    //     async function fetchMeal(){
+    //         try{
+    //             const accessToken = localStorage.getItem("access_token")
+    //             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/${apiId}/`, {
+    //                 headers: {
+    //                     Authorization: `Bearer ${accessToken}`
+    //                 }
+    //             })
+    //             console.log(res.data)
+    //             setMeal(res.data)
+    //         }
+    //         catch(err){
+    //             console.error(err)
+    //         }
+    //     }
+    //     fetchMeal()
+    // },[])
 
     async function deleteRecipe(){
         try{

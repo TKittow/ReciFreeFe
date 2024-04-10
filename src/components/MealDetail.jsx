@@ -20,7 +20,8 @@ export default function MealDetail() {
         }
 
         fetchMeal();
-    }, [id]);
+        // eslint-disable-next-line
+    }, []);
 
     let ingredients = []
     let measurements = []
@@ -31,11 +32,47 @@ export default function MealDetail() {
         i++
     }
 
+    // name = models.CharField(max_length=100)
+    // apiId = models.CharField(max_length=20)
+    // description = models.TextField()
+    // source = models.CharField(max_length=200)
+    // created_at = models.DateTimeField(auto_now_add=True)
+    // updated_at = models.DateTimeField(auto_now=True)
+    // image = models.TextField()
+
+    async function postRecipe(meal){
+        try {
+            const mealData = {
+                name: meal.strMeal,
+                api_id: meal.idMeal,
+                description: meal.strArea,
+                source: meal.strSource,
+                image: meal.strMealThumb,
+                // steps: meal.strInstructions,
+            };
+
+            await axios.post(
+                `${process.env.REACT_APP_BACKEND_URL}/meals/`,
+                mealData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
 
   return (
     <div className="meal-detail-container">
         <h1>{meal.strMeal}</h1>
         <h6>{meal.strArea}</h6>
+        <button onClick={()=> postRecipe(meal)}>Add Recipe</button>
+        <br />
         <br />
         <img src={meal.strMealThumb} alt={meal.strMeal} className="meal-image" />
         <br />
