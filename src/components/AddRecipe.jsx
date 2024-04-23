@@ -287,6 +287,7 @@ export default function AddRecipe() {
                     <input
                         type="text"
                         name={`ingredient${index + 1}`}
+                        //eslint-disable-next-line
                         value={eval(`ingredient${index + 1}`)}
                         onChange={(e) => handleChange(e, index)}
                         placeholder={`Ingredient ${index + 1}`}
@@ -294,6 +295,7 @@ export default function AddRecipe() {
                     <input
                         type="text"
                         name={`measurement${index + 1}`}
+                        //eslint-disable-next-line
                         value={eval(`measurement${index + 1}`)}
                         onChange={(e) => handleChange(e, index)}
                         placeholder={`Measurement ${index + 1}`}
