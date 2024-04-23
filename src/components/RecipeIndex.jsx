@@ -47,6 +47,7 @@ export default function RecipeIndex() {
   },[])
 
   function sourceChanger(source) {
+    //eslint-disable-next-line
     const domainRegex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n?]+)/g;
     const matches = domainRegex.exec(source);
     

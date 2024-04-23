@@ -81,7 +81,7 @@ export default function RecipeDetail() {
             }
         }
         fetchRecipe()
-    },[])
+    },[id])
 
     // useEffect(()=>{
     //     async function fetchMeal(){
@@ -133,7 +133,7 @@ export default function RecipeDetail() {
             <hr />
             <p>{recipe.description}</p>
             <div>{recipe.ingredients && recipe.ingredients.map((ingredient, idx)=>(
-                <div>{ingredient.name}</div>
+                <div key={idx}>{ingredient.name}</div>
             ))}</div>
 
             <Modal show={show} onHide={handleClose} centered>
