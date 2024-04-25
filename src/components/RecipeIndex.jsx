@@ -70,6 +70,10 @@ export default function RecipeIndex() {
             backgroundImage: `url(${recipe.image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center', }}>
+              {recipe.author !== 'Unidentified'? <>
+              <p className='foodAuthor bolded'>{recipe.author}</p>
+              </> : <></>}
+            
             <p className='foodName bolded'>{recipe.name}</p>
             {/* <p className='description'>{recipe.description}</p> */}
             <div className='ingredients'>
@@ -81,7 +85,7 @@ export default function RecipeIndex() {
         </Link>
       ))}
     </div>
-    {meals.length > 0? <>
+    {meals && meals.length > 0? <>
       <br />
     <hr />
     <p>Saved Online Recipes</p>

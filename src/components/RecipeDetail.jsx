@@ -14,6 +14,8 @@ export default function RecipeDetail() {
     const [editName, setEditName] = useState('')
     const [editDescription, setEditDescription] = useState('')
     const [editImage, setEditImage] = useState('')
+    const [author, setAuthor] = useState('')
+    
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -28,6 +30,27 @@ export default function RecipeDetail() {
         setEditImage(recipe.image)
         setShowEdit(true)
     }
+
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            const userData = currentUser()
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/${userData}/`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+                        "Content-Type": "application/json",
+                    },
+                });
+                console.log(response.data.username)
+                
+                setAuthor(response.data.username);
+            } catch (error) {
+                console.error('Error fetching user data:', error)
+            }
+        };
+    
+        fetchCurrentUser();
+    }, []);
 
     const handleChange = (e) =>{
         const { name, value } = e.target
@@ -121,7 +144,8 @@ export default function RecipeDetail() {
         <>
             <p>{recipe?.author?.username}</p>
             <div className='bold'>{recipe.name}</div>
-            <div className='buttons'>
+            {author === recipe.author? <>
+                <div className='buttons'>
             <Button variant='primary' onClick={handleEditShow}>
                 Edit
             </Button>
@@ -129,6 +153,8 @@ export default function RecipeDetail() {
                 Delete
             </Button>
             </div>
+            </> : <></>}
+            
             <img src={recipe.image} alt={recipe.name} width={'70%'} className='centre'/>
             <hr />
             <p>{recipe.description}</p>

@@ -13,15 +13,18 @@ export default function Mainmenu() {
     <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">ReciFree</Navbar.Brand>
-        <Nav className="me-auto">
+        
+        {isAuth ? (
+          <>
+          <Nav className="me-auto">
           <Nav.Link href="/recipes">Recipes</Nav.Link>
           <Nav.Link href="/recipes/add">Add a recipe</Nav.Link>
           
         </Nav>
-        {isAuth ? (
           <Nav>
             <Nav.Link href="/logout">Logout</Nav.Link>
           </Nav>
+          </>
         ) : (
           <Nav>
             <Nav.Link href="/login">Login</Nav.Link>
