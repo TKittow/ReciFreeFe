@@ -81,11 +81,14 @@ export default function RecipeIndex() {
         </Link>
       ))}
     </div>
-    <br />
+    {meals.length > 0? <>
+      <br />
     <hr />
     <p>Saved Online Recipes</p>
     <hr />
     <br />
+    </> : <></>}
+    
     <div className='cardHolder'>
       {meals && meals.map((meal, index) => (
          <Link to={`/meals/${meal.api_id}`} key={index}>
