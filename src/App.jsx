@@ -9,8 +9,11 @@ import RecipeIndex from "./components/RecipeIndex";
 import AddRecipe from "./components/AddRecipe";
 import RecipeDetail from "./components/RecipeDetail";
 import MealDetail from './components/MealDetail'
+import MyPage from "./components/MyPage";
+
 
 function App() {
+
   return (
     <BrowserRouter>
       <Mainmenu />
@@ -24,6 +27,7 @@ function App() {
           <Route path="/recipes/add" element={< AddRecipe />} />
           <Route path="/recipes/:id" element={< RecipeDetail />} />
           <Route path="/meals/:id" element={< MealDetail />} />
+          <Route path="/mypage/:username" element={< MyPage />} />
 
         </Routes>
       </Container>

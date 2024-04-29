@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import './MealDetail.css'
+import { currentUser } from '../lib/CurrentUser'
 
 
 export default function MealDetail() {
     const [meal, setMeal] = useState({})
+    const [author, setAuthor] = useState('')
     const { id } = useParams()
 
     useEffect(() => {
@@ -21,6 +23,27 @@ export default function MealDetail() {
 
         fetchMeal();
         // eslint-disable-next-line
+    }, []);
+
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            const userData = currentUser(); // Assuming this returns the user ID
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/${userData}/`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+                        "Content-Type": "application/json",
+                    },
+                });
+                console.log(response.data.username)
+                
+                setAuthor(response.data.username);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+    
+        fetchCurrentUser();
     }, []);
 
     let ingredients = []
@@ -48,6 +71,8 @@ export default function MealDetail() {
                 description: meal.strArea,
                 source: meal.strSource,
                 image: meal.strMealThumb,
+                steps: meal.strInstructions,
+                author: author,
                 // steps: meal.strInstructions,
             };
 

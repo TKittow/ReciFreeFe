@@ -1,8 +1,7 @@
-import React from 'react'
-import './HomePage.css'
-import { useState } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import './HomePage.css';
 
 export default function HomePage() {
   const [search, setSearch] = useState('');
@@ -21,62 +20,59 @@ export default function HomePage() {
     }
   };
 
-  const handleSearch = async () => {
+  const handleInputChange = async (event) => {
+    const mealName = event.target.value;
+    setSearch(mealName);
     setIsSearching(true);
-    const data = await searchMealByName(search);
-    setSearchResult(data);
-    console.log(data)
-  };
-
-  const handleInputChange = (event) => {
-    setSearch(event.target.value);
     
+    // Call the search function only if there is input
+    if (mealName.trim() !== '') {
+      const data = await searchMealByName(mealName);
+      setSearchResult(data);
+    } else {
+      setSearchResult([]);
+    }
   };
 
   function sourceChanger(source) {
-    // eslint-disable-next-line
     const domainRegex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n?]+)/g;
     const matches = domainRegex.exec(source);
     
     if (matches && matches.length >= 2) {
-        const domain = matches[1];
-        const dotIndex = domain.indexOf('.');
-        return dotIndex !== -1 ? domain.substring(0, dotIndex) : domain;
+      const domain = matches[1];
+      const dotIndex = domain.indexOf('.');
+      return dotIndex !== -1 ? domain.substring(0, dotIndex) : domain;
     } else {
-        return null;
+      return null;
     }
-}
+  }
 
   return (
     <>
       <div>HomePage</div>
       <br />
       <input type="text" placeholder='Search' value={search} onChange={handleInputChange}/>
-      <button onClick={handleSearch}>Submit</button>
       <br />
       <div className='cardHolder'>
-      {isSearching ? (
-        <p>Searching...</p>
-      ) : searchResult.length > 0 ? (
-        searchResult.map((meal, index) => (
-          <Link to={`/meals/${meal.idMeal}`} key={index}>
-          <div className='recipeCard' style={{ 
-            backgroundImage: `url(${meal.strMealThumb})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center', }}>
-              {meal.strSource? 
-              <div className='author bolded'>Source: {sourceChanger(meal.strSource)}</div>
-            :
-            <></>}
-            
-            <p className='foodName bolded'>{meal.strMeal}</p>
-            {/* <p className='description'>{recipe.description}</p> */}
-          </div>
-        </Link>
-        ))
-      ) : (
-        <p>{search ? 'No Results Found' : 'Enter a search query above'}</p>
-      )}
+        {isSearching ? (
+          <p>Searching...</p>
+        ) : searchResult.length > 0 ? (
+          searchResult.map((meal, index) => (
+            <Link to={`/meals/${meal.idMeal}`} key={index}>
+              <div className='recipeCard' style={{ 
+                backgroundImage: `url(${meal.strMealThumb})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center', }}>
+                {meal.strSource ? 
+                  <div className='author bolded'>Source: {sourceChanger(meal.strSource)}</div>
+                  : <></>}
+                <p className='foodName bolded'>{meal.strMeal}</p>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p>{search ? 'No Results Found' : 'Enter a search query above'}</p>
+        )}
       </div>
     </>
   );
