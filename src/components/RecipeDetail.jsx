@@ -142,6 +142,7 @@ export default function RecipeDetail() {
 
     return (
         <>
+        <div className='recipeBody'>
             <p>{recipe?.author?.username}</p>
             <div className='bold'>{recipe.name}</div>
             {author === recipe.author? <>
@@ -158,15 +159,17 @@ export default function RecipeDetail() {
             <img src={recipe.image} alt={recipe.name} width={'70%'} className='centre'/>
             <hr />
             <p>{recipe.description}</p>
-            <div>{recipe.ingredients && recipe.ingredients.map((ingredient, idx)=>(
-                <div key={idx}>{ingredient.name}</div>
-            ))}</div>
+            <ul>{recipe.ingredients && recipe.ingredients.map((ingredient, idx)=>(
+                <li key={idx}>{ingredient.name}</li>
+            ))}</ul>
+            <div>{recipe.steps}</div>
+            </div>
 
             <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
                 <Modal.Title>Are you sure you want to Delete {recipe.name}?</Modal.Title>
                 </Modal.Header>
-                <Modal.Footer>
+                <Modal.Footer className='buttonWrapper'>
                 <Button variant="warning" onClick={handleClose}>
                     Close
                 </Button>

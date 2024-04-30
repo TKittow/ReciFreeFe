@@ -9,6 +9,7 @@ export default function MealDetail() {
     const [meal, setMeal] = useState({})
     const [author, setAuthor] = useState('')
     const { id } = useParams()
+    const [saved, setSaved] = useState(true)
 
     useEffect(() => {
         async function fetchMeal() {
@@ -38,13 +39,37 @@ export default function MealDetail() {
                 console.log(response.data.username)
                 
                 setAuthor(response.data.username);
+                checkSaved(response.data.username)
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
         };
     
         fetchCurrentUser();
+        //eslint-disable-next-line
     }, []);
+
+    const checkSaved = async (username) => {
+        try {
+            const accessToken = localStorage.getItem("access_token");
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/${username}`, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            });
+            console.log(res.data);
+            let meals = res.data
+            meals.forEach((meal)=>{
+                console.log(id)
+                console.log(meal.api_id)
+                if (meal.api_id !== id){
+                    setSaved(false)
+                }
+            })
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
     let ingredients = []
     let measurements = []
@@ -73,8 +98,8 @@ export default function MealDetail() {
                 image: meal.strMealThumb,
                 steps: meal.strInstructions,
                 author: author,
-                // steps: meal.strInstructions,
             };
+            console.log(mealData)
 
             await axios.post(
                 `${process.env.REACT_APP_BACKEND_URL}/meals/`,
@@ -86,6 +111,7 @@ export default function MealDetail() {
                     },
                 }
             );
+            // window.location.href = `/`;
         } catch (err) {
             console.error(err);
         }
@@ -96,7 +122,11 @@ export default function MealDetail() {
     <div className="meal-detail-container">
         <h1>{meal.strMeal}</h1>
         <h6>{meal.strArea}</h6>
-        <button onClick={()=> postRecipe(meal)}>Add Recipe</button>
+        {saved === false ? <>
+            <button onClick={()=> postRecipe(meal)}>Add Recipe</button>
+        </> : <>
+        </>}
+        
         <br />
         <br />
         <img src={meal.strMealThumb} alt={meal.strMeal} className="meal-image" />

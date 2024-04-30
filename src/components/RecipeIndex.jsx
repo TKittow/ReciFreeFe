@@ -26,6 +26,10 @@ export default function RecipeIndex() {
         getRecipes()
     },[])
 
+    function moveToHome(){
+      window.location.href = `/`;
+    }
+
   return (
     <>
     <div className='cardHolder'>
@@ -40,15 +44,17 @@ export default function RecipeIndex() {
               </> : <></>}
             
             <p className='foodName bolded'>{recipe.name}</p>
-            <p className='description'>{recipe.description}</p>
-            <div className='ingredients'>
+            {/* <div className='ingredients'>
               {recipe.ingredients && recipe.ingredients.map((ingredient, idx) => (
                 <div key={idx}>{ingredient.name}</div>
               ))}
-            </div>
+            </div> */}
           </div>
         </Link>
       ))}
+    </div>
+    <div className='center'>
+      <button onClick={moveToHome}>Search for a recipe</button>
     </div>
     </>
   )

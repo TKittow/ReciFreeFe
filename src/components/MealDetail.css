@@ -1,4 +1,9 @@
-/* MealDetail.css */
+body{
+    background-image: url(../../public/foodLogo.png);
+    background-size: 130px;
+    background-repeat: space;
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
 .meal-detail-container {
     max-width: 1000px;
@@ -74,4 +79,10 @@ button {
 /* Hover effect */
 button:hover {
     background-color: #0056b3; /* Darker background color on hover */
+}
+
+.title{
+    font-weight: bold;
+    font-size: 150%;
+    text-align: center;
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import './MealDetail.css'
+
 
 export default function MyPage() {
     const [meals, setMeals] = useState([]);
@@ -40,16 +42,17 @@ export default function MyPage() {
         }
     }
 
+    function goToMeals(){
+        window.location.href = `/`;
+    }
+
     return (
         <div>
-            {meals && meals.length > 0 ? <>
-                <br />
-                <hr />
-                <p>Saved Online Recipes</p>
-                <hr />
-                <br />
-            </> : <></>}
-
+            {meals && meals.length > 0 ? <></> : <>
+            <div className='bolded'>No Saved Meals</div>
+            <button onClick={goToMeals}>Add Meals</button>
+            </>}
+            <div className='center title'>{`${username}'s page `}</div>
             <div className='cardHolder'>
                 {meals && meals.map((meal, index) => (
                     <Link to={`/meals/${meal.api_id}`} key={index}>

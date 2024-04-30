@@ -99,7 +99,7 @@ export default function AddRecipe() {
                     },
                 }
             );
-            // window.location.href = `/recipes`;
+            window.location.href = `/recipes`;
             console.log(recipeData)
         } catch (err) {
             console.error(err);

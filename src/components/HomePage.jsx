@@ -48,6 +48,10 @@ export default function HomePage() {
     }
   }
 
+  function moveToRecipe(){
+    window.location.href = `/recipes`;
+  }
+
   return (
     <>
       <div>HomePage</div>
@@ -75,6 +79,9 @@ export default function HomePage() {
           <p>{search ? 'No Results Found' : 'Enter a search query above'}</p>
         )}
       </div>
+      <div className='center'>
+      <button onClick={moveToRecipe}>To posted recipes</button>
+    </div>
     </>
   );
 }

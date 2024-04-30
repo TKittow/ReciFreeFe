@@ -1,3 +1,11 @@
+body{
+  background-image: url(../../public/foodLogo.png);
+  background-size: 130px;
+  background-repeat: space;
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
 input[type=text] {
     float: center;
     padding: 6px;

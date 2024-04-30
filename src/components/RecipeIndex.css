@@ -1,6 +1,13 @@
+body{
+  height: 100vh;
+  background-image: url(../../public/foodLogo.png);
+  background-size: 130px;
+  background-repeat: space;
+  background-color: rgba(255, 255, 255, 0.5);
+}
 .cardHolder {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(900px, 1fr)); /* Adjust minmax values as needed */
+    grid-template-columns: repeat(auto-fill, minmax(20vmin, 43vmin));
     gap: 20px;
   }
   
@@ -48,3 +55,8 @@
         -1.25px 1.25px 0 #000,
         1.25px 1.25px 0 #000;
   }
+
+.center{
+  display: grid;
+  padding: 3% 40%;
+}
