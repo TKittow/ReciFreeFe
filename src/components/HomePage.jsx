@@ -25,7 +25,7 @@ export default function HomePage() {
     setSearch(mealName);
     setIsSearching(true);
     
-    // Call the search function only if there is input
+  
     if (mealName.trim() !== '') {
       const data = await searchMealByName(mealName);
       setSearchResult(data);

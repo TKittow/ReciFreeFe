@@ -28,7 +28,7 @@ export default function MealDetail() {
 
     useEffect(() => {
         const fetchCurrentUser = async () => {
-            const userData = currentUser(); // Assuming this returns the user ID
+            const userData = currentUser();
             try {
                 const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/${userData}/`, {
                     headers: {
