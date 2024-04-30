@@ -111,7 +111,7 @@ export default function MealDetail() {
                     },
                 }
             );
-            // window.location.href = `/`;
+            window.location.href = `/`;
         } catch (err) {
             console.error(err);
         }
