@@ -66,9 +66,9 @@ export default function AddRecipe() {
     };
 
     const handleAddIngredient = () => {
-            // Assuming the default quantity is 100 as in your example
+
             setIngredients([...ingredients, { id: selectedIngredient, quantity: 100 }]);
-            setSelectedIngredient(''); // Reset selectedIngredient state
+            setSelectedIngredient('');
     };
 
     const handleIngredientChange = (index, value) => {
