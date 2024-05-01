@@ -1,11 +1,14 @@
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
     const userRef = useRef()
     const emailRef = useRef()
     const pwdRef = useRef()
+    const navigate = useNavigate()
+
     async function handleSubmit(e) {
         e.preventDefault();
         const user = {
@@ -27,7 +30,13 @@ export default function Signup() {
         console.log(data)
         window.location.href = "/login"
       }
+      async function handleLoginChange(e) {
+        e.preventDefault();
+        navigate('/login')
+      }
+
   return (
+    <>
     <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label>Username</Form.Label>
@@ -43,9 +52,15 @@ export default function Signup() {
       </Form.Group>
       <div className="mt-2">
         <Button type="submit" variant="primary">
-          Login
+          Sign Up
         </Button>
       </div>
     </Form>
+    <Form onSubmit={handleLoginChange} className="loginChanger">
+      <Form.Label>Already Have an account?</Form.Label>
+      <br />
+      <Button type="submit" variant="secondary">Move To Login</Button>
+    </Form>
+    </>
   )
 }
