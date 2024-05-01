@@ -1,5 +1,7 @@
 # ReadMe ReciFree
 
+![recifree](https://github.com/TKittow/ReciFreeFe/blob/main/public/ReciFree%20-%20Saved%20Recipes.png)
+
 ### Description
 
 Recifree is an app where you can upload and view recipes online.
