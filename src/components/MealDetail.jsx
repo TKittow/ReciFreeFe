@@ -59,6 +59,9 @@ export default function MealDetail() {
             });
             console.log(res.data);
             let meals = res.data
+            if (meals.length === 0){
+                setSaved(false)
+            }
             meals.forEach((meal)=>{
                 console.log(id)
                 console.log(meal.api_id)

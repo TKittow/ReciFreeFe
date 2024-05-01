@@ -28,7 +28,7 @@ export default function Signup() {
           }
         );
         console.log(data)
-        window.location.href = "/login"
+        navigate('/login')
       }
       async function handleLoginChange(e) {
         e.preventDefault();
