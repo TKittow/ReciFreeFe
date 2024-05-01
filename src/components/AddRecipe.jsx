@@ -23,7 +23,6 @@ export default function AddRecipe() {
                         "Content-Type": "application/json",
                     },
                 });
-                console.log(response.data.username)
                 
                 setAuthor(response.data.username);
             } catch (error) {
@@ -100,7 +99,6 @@ export default function AddRecipe() {
                 }
             );
             window.location.href = `/recipes`;
-            console.log(recipeData)
         } catch (err) {
             console.error(err);
         }

@@ -2,10 +2,12 @@ import './RecipeIndex.css'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function RecipeIndex() {
     const [recipes, setRecipes] = useState([])
+    const navigate = useNavigate()
 
     async function getRecipes(){
         try{
@@ -15,7 +17,6 @@ export default function RecipeIndex() {
                     Authorization: `Bearer ${accessToken}`
                 }
             })
-            console.log(res.data)
             setRecipes(res.data)
         }
         catch(err){
@@ -27,7 +28,7 @@ export default function RecipeIndex() {
     },[])
 
     function moveToHome(){
-      window.location.href = `/`;
+      navigate(`/`)
     }
 
   return (

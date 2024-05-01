@@ -41,7 +41,6 @@ export default function RecipeDetail() {
                         "Content-Type": "application/json",
                     },
                 });
-                console.log(response.data.username)
                 
                 setAuthor(response.data.username);
             } catch (error) {
@@ -96,7 +95,6 @@ export default function RecipeDetail() {
                         Authorization: `Bearer ${accessToken}`
                     }
                 })
-                console.log(res.data)
                 setRecipe(res.data)
             }
             catch(err){
@@ -105,25 +103,6 @@ export default function RecipeDetail() {
         }
         fetchRecipe()
     },[id])
-
-    // useEffect(()=>{
-    //     async function fetchMeal(){
-    //         try{
-    //             const accessToken = localStorage.getItem("access_token")
-    //             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/${apiId}/`, {
-    //                 headers: {
-    //                     Authorization: `Bearer ${accessToken}`
-    //                 }
-    //             })
-    //             console.log(res.data)
-    //             setMeal(res.data)
-    //         }
-    //         catch(err){
-    //             console.error(err)
-    //         }
-    //     }
-    //     fetchMeal()
-    // },[])
 
     async function deleteRecipe(){
         try{

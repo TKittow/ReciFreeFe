@@ -32,7 +32,6 @@ export default function Mainmenu() {
                     "Content-Type": "application/json",
                 },
             });
-            console.log(response.data.username);
             setAuthor(response.data.username);
         } catch (error) {
             console.error('Error fetching user data:', error);
