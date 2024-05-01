@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import './MealDetail.css'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MyPage() {
     const [meals, setMeals] = useState([]);
     const { username } = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         getMeals();
@@ -21,7 +23,6 @@ export default function MyPage() {
                     Authorization: `Bearer ${accessToken}`
                 }
             });
-            console.log(res.data);
             setMeals(res.data);
         } catch (err) {
             console.error(err);
@@ -43,7 +44,7 @@ export default function MyPage() {
     }
 
     function goToMeals(){
-        window.location.href = `/`;
+        navigate(`/`)
     }
 
     return (

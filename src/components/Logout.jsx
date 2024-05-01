@@ -1,9 +1,7 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Logout() {
-  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       try {
@@ -23,7 +21,7 @@ export default function Logout() {
         );
         localStorage.clear();
         axios.defaults.headers.common["Authorization"] = null;
-        navigate("/login");
+        window.location.href="/login"
       } catch (e) {
         console.log("Logout error", e);
       }

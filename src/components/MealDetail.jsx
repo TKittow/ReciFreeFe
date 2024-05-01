@@ -15,7 +15,6 @@ export default function MealDetail() {
         async function fetchMeal() {
             try {
                 const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
-                console.log(response.data);
                 setMeal(response.data.meals[0]);
             } catch (error) {
                 console.error(error);
@@ -36,7 +35,6 @@ export default function MealDetail() {
                         "Content-Type": "application/json",
                     },
                 });
-                console.log(response.data.username)
                 
                 setAuthor(response.data.username);
                 checkSaved(response.data.username)
@@ -57,18 +55,18 @@ export default function MealDetail() {
                     Authorization: `Bearer ${accessToken}`
                 }
             });
-            console.log(res.data);
             let meals = res.data
             if (meals.length === 0){
                 setSaved(false)
+            } else{
+                meals.forEach((meal)=>{
+                    if (meal.api_id === id){
+                        setSaved(true)
+                    }
+                    else {setSaved(false)}
+                })
             }
-            meals.forEach((meal)=>{
-                console.log(id)
-                console.log(meal.api_id)
-                if (meal.api_id !== id){
-                    setSaved(false)
-                }
-            })
+            
         } catch (err) {
             console.error(err);
         }
@@ -102,7 +100,6 @@ export default function MealDetail() {
                 steps: meal.strInstructions,
                 author: author,
             };
-            console.log(mealData)
 
             await axios.post(
                 `${process.env.REACT_APP_BACKEND_URL}/meals/`,
