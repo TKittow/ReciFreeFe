@@ -1,88 +1,85 @@
-body{
-    background-image: url(../../public/foodLogo.png);
-    background-size: 130px;
-    background-repeat: space;
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
 .meal-detail-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    margin-bottom: 10px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .meal-image {
-    width: 80%;
-    border-radius: 8px;
-    align-self: center;
-
+  width: 80%;
+  border-radius: 8px;
+  align-self: center;
 }
 
 .section-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .ingredient-list {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .ingredient-list li {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-.instructions-section, .tutorial-section {
-    margin-top: 20px;
+.instructions-section,
+.tutorial-section {
+  margin-top: 20px;
 }
 
 .not-available {
-    font-style: italic;
-    color: #999;
+  font-style: italic;
+  color: #999;
 }
 
 .tutorial-link {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
 .tutorial-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #ffffff;
-    transition: background-color 0.3s ease; 
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-.title{
-    font-weight: bold;
-    font-size: 150%;
-    text-align: center;
-
+.title {
+  font-weight: bold;
+  font-size: 150%;
+  text-align: center;
 }

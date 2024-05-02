@@ -1,0 +1,140 @@
+.recipe-card-container {
+  position: relative;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: antiquewhite;
+  position: relative;
+  margin-bottom: 15px;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+}
+
+.recipe-card-container:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1, 1.1);
+  z-index: 200;
+}
+
+.recipe-card-container:hover .badge-text {
+  opacity: 1;
+  position: unset;
+}
+.recipe-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.recipe-title-container {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 10px;
+}
+
+.recipe-title {
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+.recipe-area {
+  font-size: small;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+  padding-right: 5px;
+  color: gray;
+}
+
+.image-container {
+  position: relative;
+}
+.badge {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 0px;
+  transform: translate(0px, 10px);
+  display: flex;
+  flex-direction: column;
+  z-index: 200;
+  position: absolute;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  right: 5px;
+  bottom: -15px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+}
+
+.badge-text {
+  opacity: 0;
+  position: absolute;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0, 1);
+  bottom: -50px;
+  font-size: 10px;
+}
+
+.recipe-button-parent {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.recipe-border {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114)) border-box;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  padding-left: 10px;
+  padding-right: 10px;
+  animation: ButtonShine 2s ease infinite;
+  transition: 0.6s;
+  background-size: 400% 400%;
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      rgb(242, 112, 156),
+      rgb(255, 148, 114)
+    );
+
+    transform: scale(1.1);
+  }
+
+  .recipe-button:hover {
+    -webkit-text-fill-color: white;
+  }
+}
+.recipe-button {
+  cursor: pointer;
+  background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    background: linear-gradient(to right, linear-gradient(white, white));
+  }
+}
+
+@keyframes ButtonShine {
+  0% {
+    background-position: 1% 0%;
+  }
+  50% {
+    background-position: 99%100%;
+  }
+
+  100% {
+    background-position: 1% 0%;
+  }
+}

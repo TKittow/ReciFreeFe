@@ -1,62 +1,46 @@
-body{
-  height: 100vh;
-  background-image: url(../../public/foodLogo.png);
-  background-size: 130px;
-  background-repeat: space;
-  background-color: rgba(255, 255, 255, 0.5);
+.recipeCard {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 300px;
+  background-color: #f9f9f9;
 }
-.cardHolder {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20vmin, 43vmin));
-    gap: 20px;
-  }
-  
-  .recipeCard {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    height: 300px;
-    background-color: #f9f9f9;
-  }
-  
-  .author {
-    font-weight: bold;
-  }
-  
-  .foodName {
-    text-align: center;
-    font-size: 1.7em;
-    margin-top: 10px;
-  }
-  
-  .description {
-    text-align: center;
-  }
-  
-  .ingredients {
-    margin-top: 10px;
-  }
 
-  a{
-    text-decoration: none;
-    color: black;
-  }
+.author {
+  font-weight: bold;
+}
 
-  .shaded{
-    background-color: rgba(0, 0, 0, 0.6);
-  }
+.foodName {
+  text-align: center;
+  font-size: 1.7em;
+  margin-top: 10px;
+}
 
-  .bolded{
-    color: white;
-    font-weight: bold;
-    text-shadow: 
-        -1.25px -1.25px 0 #000,  
-        1.25px -1.25px 0 #000,
-        -1.25px 1.25px 0 #000,
-        1.25px 1.25px 0 #000;
-  }
+.description {
+  text-align: center;
+}
 
-.center{
+.ingredients {
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.shaded {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bolded {
+  color: white;
+  font-weight: bold;
+  text-shadow: -1.25px -1.25px 0 #000, 1.25px -1.25px 0 #000,
+    -1.25px 1.25px 0 #000, 1.25px 1.25px 0 #000;
+}
+
+.center {
   display: grid;
   padding: 3% 40%;
 }

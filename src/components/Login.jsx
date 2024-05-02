@@ -23,15 +23,14 @@ export default function Login() {
         withCredentials: true,
       }
     );
+
     localStorage.clear();
-    localStorage.setItem("access_token", data.access)
-    localStorage.setItem("refresh_token", data.refresh)
+    localStorage.setItem("access_token", data.access);
+    localStorage.setItem("refresh_token", data.refresh);
 
     axios.defaults.headers.common["Authorization"] = `Bearer ${data.access}`;
-    
-  
 
-    window.location.href = "/"
+    window.location.href = "/";
   }
   return (
     <Form onSubmit={handleSubmit}>
